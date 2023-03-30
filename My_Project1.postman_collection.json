@@ -1,0 +1,279 @@
+{
+	"info": {
+		"_postman_id": "0389d14e-d30f-4154-a520-a926e19fa634",
+		"name": "My_Project1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26101151"
+	},
+	"item": [
+		{
+			"name": "get_all",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseurl}}",
+					"host": [
+						"{{baseurl}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_user",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"\r",
+							"var Firstname = pm.variables.replaceIn(\"{{$randomFirstName}}\")\r",
+							"   pm.environment.set(\"Firstname\",Firstname)\r",
+							"\r",
+							"   //csv file\r",
+							"//var FirstName = pm.variables.replaceIn(\"{{$randomFirstName}}\")\r",
+							"  // pm.iterationData.set(\"FirstName\",FirstName)\r",
+							" //console.log(\"First Name: \"+ FirstName)\r",
+							"\r",
+							"var Lastname = pm.variables.replaceIn(\"{{$randomLastName}}\")\r",
+							"   pm.environment.set(\"Lastname\",Lastname)\r",
+							"  \r",
+							" //csv file\r",
+							"//var LastName = pm.variables.replaceIn(\"{{$randomLastName}}\")\r",
+							" //  pm.iterationData.set(\"LastName\",LastName)\r",
+							"\r",
+							"\r",
+							"const moment=require(\"moment\")\r",
+							"const today =moment()\r",
+							" pm.environment.set(\"DOB\",today.format(\"YYYY-MM-DD-\")) \r",
+							"\r",
+							" var Email = pm.variables.replaceIn(\"{{$randomEmail}}\")\r",
+							"   pm.environment.set(\"email\", Email) \r",
+							"\r",
+							"  var Address = pm.variables.replaceIn(\"{{$randomStreetAddress}}\")\r",
+							"   pm.environment.set(\"address\",Address) "
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							" \r",
+							" var jsonData = pm.response.json()\r",
+							"pm.environment.set(\"id\",jsonData.id)\r",
+							"\r",
+							"pm.test(\"User created Successfully!\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Firstname\": \"{{Firstname}}\",\r\n    \"Lastname\": \"{{Lastname}}\",\r\n    \"DateOfBirth\": \"{{DOB}}\",\r\n    \"Email\": \"{{email}}\",\r\n    \"Address\": \"{{address}} \"\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseurl}}",
+					"host": [
+						"{{baseurl}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_specificUser",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							" var code = pm.response.code\r",
+							"switch(code){\r",
+							"    \r",
+							"    case 200:\r",
+							"        var jsonData = pm.response.json();\r",
+							"\r",
+							"        pm.test(\"First name validation check\", function () {\r",
+							"           pm.expect(jsonData.Firstname).to.eql(pm.environment.get(\"Firstname\"))\r",
+							"     });\r",
+							"\r",
+							"           //csv file\r",
+							"        //pm.test(\"First name validation check\", function () {\r",
+							"          // pm.expect(jsonData.Firstname).to.eql(pm.iterationData.get(\"FirstName\"))\r",
+							"       // });\r",
+							"       \r",
+							"\r",
+							"        pm.test(\"ID Validation\", function () {\r",
+							"            pm.expect(jsonData.id).to.eql(pm.environment.get(\"id\"));\r",
+							"        });\r",
+							"\r",
+							"        pm.test(\"Last Name Validation\", function () {\r",
+							"            pm.expect(jsonData.Lastname).to.eql(pm.environment.get(\"Lastname\"));\r",
+							"        });\r",
+							"\r",
+							"//csv file\r",
+							"       // pm.test(\"First name validation check\", function () {\r",
+							"           // pm.expect(jsonData.Lastname).to.eql(pm.iterationData.get(\"LastName\"))\r",
+							"       // });\r",
+							"\r",
+							"pm.test(\"DOB Validation\", function () {\r",
+							"    pm.expect(jsonData.DateOfBirth).to.eql(pm.environment.get(\"DOB\"));\r",
+							"});\r",
+							"pm.test(\"Email \", function () {\r",
+							"    pm.expect(jsonData.Email).to.eql(pm.environment.get(\"email\"));\r",
+							"});\r",
+							"      break;\r",
+							"case 404:\r",
+							"        pm.test(\"something went wrong!\",function(){\r",
+							"\r",
+							"         })\r",
+							"        break;\r",
+							"case 500:\r",
+							"        pm.test (\"Server not found\",function(){\r",
+							"            \r",
+							"        }) \r",
+							"        break;    \r",
+							"\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseurl}}/{{id}}",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update_user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Updated Successfully\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Firstname\": \"Shanjida\",\r\n    \"Lastname\": \"Labonno\",\r\n    \"DateOfBirth\": \"2000-06-10\",\r\n    \"Email\": \"shanjidaislam@gmail.com\",\r\n    \"Address\": \"kuril \"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseurl}}/{{id}}",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete_user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successfully deleted\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseurl}}/{{id}}",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

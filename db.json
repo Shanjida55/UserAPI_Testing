@@ -1,0 +1,140 @@
+{
+  "user": [
+    {
+      "id": 101,
+      "Firstname": "Shanjida",
+      "Lastname": "Islam",
+      "DateOfBirth": "2000-06-10",
+      "Email": "shanjidaislam@gmail.com",
+      "Address": "kuril chowrasta"
+    },
+    {
+      "id": 102,
+      "Firstname": "Tanjil",
+      "Lastname": "Ahmed",
+      "DateOfBirth": "1994-10-04",
+      "Email": "tanjil123@gmail.com",
+      "Address": "Motijheel"
+    },
+    {
+      "id": 103,
+      "Firstname": "Tasnia",
+      "Lastname": "Tahmina",
+      "DateOfBirth": "1975-02-02",
+      "Email": "tasnia345@gmail.com",
+      "Address": "motijheel bongovobon"
+    },
+    {
+      "Firstname": "Shanjida",
+      "Lastname": "Islam",
+      "DateOfBirth": "2000-06-10",
+      "Email": "shanjidaislam@gmail.com",
+      "Address": "kuril chowrasta",
+      "id": 104
+    },
+    {
+      "Firstname": "Shanjida",
+      "Lastname": "Islam",
+      "DateOfBirth": "2000-06-10",
+      "Email": "shanjidaislam@gmail.com",
+      "Address": "kuril chowrasta",
+      "id": 105
+    },
+    {
+      "Firstname": "Shanjida",
+      "Lastname": "Islam",
+      "DateOfBirth": "2000-06-10",
+      "Email": "shanjidaislam@gmail.com",
+      "Address": "kuril chowrasta",
+      "id": 106
+    },
+    {
+      "Firstname": "Shanjida",
+      "Lastname": "Islam",
+      "DateOfBirth": "2000-06-10",
+      "Email": "shanjidaislam@gmail.com",
+      "Address": "kuril ",
+      "id": 108
+    },
+    {
+      "Firstname": "Shanjida",
+      "Lastname": "Islam",
+      "DateOfBirth": "2000-06-10",
+      "Email": "shanjidaislam@gmail.com",
+      "Address": "kuril ",
+      "id": 109
+    },
+    {
+      "Firstname": "Nedra",
+      "Lastname": "Metz",
+      "DateOfBirth": "{{DateOfBirth}}",
+      "Email": "{{Email}}",
+      "Address": "{{Address}} ",
+      "id": 110
+    },
+    {
+      "Firstname": "Julian",
+      "Lastname": "Jakubowski",
+      "DateOfBirth": "2023-03-31-",
+      "Email": "Abigale34@yahoo.com",
+      "Address": "92030 Dibbert Harbors ",
+      "id": 111
+    },
+    {
+      "Firstname": "Julian",
+      "Lastname": "Jakubowski",
+      "DateOfBirth": "2023-03-31-",
+      "Email": "Velva.Schultz65@yahoo.com",
+      "Address": "2388 Ines Parks ",
+      "id": 112
+    },
+    {
+      "Firstname": "Julian",
+      "Lastname": "Jakubowski",
+      "DateOfBirth": "2023-03-31-",
+      "Email": "Kade.Bahringer54@hotmail.com",
+      "Address": "1852 Mathilde Club ",
+      "id": 113
+    },
+    {
+      "Firstname": "Julian",
+      "Lastname": "Jakubowski",
+      "DateOfBirth": "2023-03-31-",
+      "Email": "Millie88@hotmail.com",
+      "Address": "715 Paucek Corners ",
+      "id": 114
+    },
+    {
+      "Firstname": "Brenda",
+      "Lastname": "Gleason",
+      "DateOfBirth": "2023-03-31-",
+      "Email": "Emily.Hilpert@yahoo.com",
+      "Address": "433 Wilkinson Ramp ",
+      "id": 115
+    },
+    {
+      "Firstname": "Francesco",
+      "Lastname": "Kessler",
+      "DateOfBirth": "2023-03-31-",
+      "Email": "Lawson.Kessler60@hotmail.com",
+      "Address": "69039 Jarrell Flat ",
+      "id": 116
+    },
+    {
+      "Firstname": "Providenci",
+      "Lastname": "Kuhlman",
+      "DateOfBirth": "2023-03-31-",
+      "Email": "Darrion.McClure@yahoo.com",
+      "Address": "275 Stroman Walk ",
+      "id": 117
+    },
+    {
+      "Firstname": "Julian",
+      "Lastname": "Kemmer",
+      "DateOfBirth": "2023-03-31-",
+      "Email": "Cayla_Stokes@gmail.com",
+      "Address": "561 Julien Haven ",
+      "id": 118
+    }
+  ]
+}
