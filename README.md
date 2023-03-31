@@ -3,7 +3,7 @@ Here I created a demo user API for Testing with JSON.
 JSON Dataset image below:
 ![image](https://user-images.githubusercontent.com/99314305/228957653-035d6018-507f-415c-8efd-5047bdb87d89.png)
 # Get all User details
-Fetching Author Details using get method. Here is the image:
+Fetching User Details using get method. Here is the image:
 ![image](https://user-images.githubusercontent.com/99314305/228958090-2ad9ae48-d0e4-4fb5-a708-ec5666c14571.png)
 # Create User Details
 Create User Detail using post method. Here is the image:
